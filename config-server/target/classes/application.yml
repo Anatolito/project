@@ -1,0 +1,33 @@
+server:
+  port: 8888 # порт для config-server
+
+spring:
+  application:
+    name: config-server # имя для config-server
+
+  profiles:
+    active: git
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Anatolito/ms-config-properties
+          search-paths: "/{application}/{profile}"
+          default-label: main
+          username: Anatolito
+          password: SHA256:cCp+Da+ZZd1EhXXbltO5zrl8Fpx1PllOGQRSdEfsRGc
+
+#  profiles:
+#    active: native
+#  cloud:
+#    config:
+#      discovery:
+#        enabled: true
+#      server:
+#        native:
+#          search-locations: file:///d:/KAWD/ms-config-properties/{application}/{profile}
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka} # путь до сервера eureka - server
+

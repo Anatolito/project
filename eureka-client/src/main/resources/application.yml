@@ -1,0 +1,36 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka} #url по которому клиент будет искать свой сервер
+    enabled: true # включить/отключить регистрацию на сервере
+  instance:
+    preferIpAddress: true # Когда это свойство установлено в true, Eureka Client будет предпочитать использование IP-адреса вместо имени хоста при регистрации в Eureka-сервере.
+    # Это может быть полезным в распределенных средах, где использование IP-адресов может предоставить более стабильные и предсказуемые результаты.
+    lease-renewal-interval-in-seconds: 35 #интервал эхо запроса, который клиент отправляет на сервер
+    app name: "hello world" # имя приложения
+
+#    eureka:
+#      client:
+#        shouldUseDns: true
+#        serviceUrl:
+#          defaultZone: ${EUREKA_URI:http://localhost:8761/eureka} #url по которому клиент будет искать свой сервер
+#        enabled: true # включить/отключить регистрацию на сервере
+#        eureka-server-connect-timeout-seconds: 5 # указать время ожидания (в секундах) до истечения тайм-аута соединения с Eureka Server
+#        eureka-server-read-timeout-seconds: 6 # указать время ожидания (в секундах) до истечения тайм-аута чтения с Eureka Server
+#        eureka-server-total-connections: 200 # указать общее количество подключений, разрешенных от клиента ко всем серверам
+#        eureka-server-total-connections-per-host: 50 # указать общее количество подключений, разрешенных от клиента к определенному серверу
+#        eureka-service-url-poll-interval-seconds: 3 # как часто (в секундах) необходимо запрашивать изменения об информации с сервера
+#        log-delta-diff: false # нужно ли регистрировать различия между сервером eureka и клиентом eureka с точки зрения информации реестра
+#      instance:
+#        preferIpAddress: true # Когда это свойство установлено в true, Eureka Client будет предпочитать использование IP-адреса вместо имени хоста при регистрации в Eureka-сервере.
+#        # Это может быть полезным в распределенных средах, где использование IP-адресов может предоставить более стабильные и предсказуемые результаты.
+#        lease-renewal-interval-in-seconds: 35 #интервал эхо запроса, который клиент отправляет на сервер
+#        app name: "hello world" # имя приложения
+#        lease-expiration-duration-in-seconds: 100 #Если Eureka Server не видел обновления в течение 100 секунд, он удаляет экземпляр из своего реестра
+#
+#        nonSecurePortEnabled: false # хотите подключиться по HTTPS
+#        securePortEnabled: true # хотите подключиться по HTTPS
+#
+#        statusPageUrl: https://${eureka.hostname}/info # проверить состояние
+#        healthCheckUrl: https://${eureka.hostname}/health # проверить состояние
+#        homePageUrl: https://${eureka.hostname}/ # проверить состояние

@@ -1,0 +1,16 @@
+server:
+  port: 7777 # порт для клиента
+
+spring:
+  application:
+    name: config-client # имя для клиента
+  config:
+    import: "optional:configserver:"
+  cloud:
+    config:
+      enabled: true
+    discovery:
+      enabled: true
+
+
+
